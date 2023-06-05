@@ -1,6 +1,7 @@
 # Leaning Diary
-Thank you for visiting!
-This will save what I learn in my daily work on Perfect World as a Machine learning engineering summer internship from June 1st -> August 27th.
+Thank you for visiting!  
+This will save what I learn in my daily work on Perfect World as a Machine learning engineering summer internship from June 1st -> August 27th.  
+
 ![Welcome](Screenshots/Dog_with_big_nose.jpg)
 
 # Example(2023-06-05):
