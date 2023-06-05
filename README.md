@@ -1,20 +1,20 @@
 # Leaning Diary
 Thank you for visiting!
 This will save what I learn in my daily work on Perfect World as a Machine learning engineering summer internship from June 1st -> August 27th.
-![Welcome](Screenshots/Dog_with_big_nose)
+![Welcome](Screenshots/Dog_with_big_nose.jpg)
 
 # Example(2023-06-05):
 # Today's work
 ### 1. Download original LLaMA model
-1. Original LLaMA Model Link: https://github.com/shawwn/llama-dl
-2. LLaMA model paper: https://arxiv.org/pdf/2302.13971.pdf
-    a. More data train on smaller models, take inference buget into account.
+1. Original LLaMA Model Link: https://github.com/shawwn/llama-dl    
+2. LLaMA model paper: https://arxiv.org/pdf/2302.13971.pdf    
+    a. More data train on smaller models, take inference buget into account.  
     
 ### 2. Check the integrity of original model and the LoRA model, make sure the sha256 is the same as indicated in SHA256.md.
-1. Linux: sha256sum filename
+1. Linux: sha256sum filename  
 
 ### 3. Transform the original model as HuggingFace format
-1. Transformers, convert_llama_weights_to_hf.py, with protobuf-3.19.0.
+1. Transformers, convert_llama_weights_to_hf.py, with protobuf-3.19.0.  
 
 ### 4. Merge the weight of the original model with LoRA weight
 
@@ -22,48 +22,48 @@ This will save what I learn in my daily work on Perfect World as a Machine learn
 llama.cpp delpoyment: https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp%E9%87%8F%E5%8C%96%E9%83%A8%E7%BD%B2
 
 ### 6. Test the model in Chinese
-Github Page of the project: https://github.com/ymcui/Chinese-LLaMA-Alpaca
-![Conversation test](Screebshots/2023-06-05-pic1.png)
+Github Page of the project: https://github.com/ymcui/Chinese-LLaMA-Alpaca  
+
+![Conversation test](Screenshots/2023-06-05-pic1.png)
 
 # Questions
-1. What is the bin file? Is this the special format for HuggingFace? Why we have two bins that split the model into two, and then the concatenate of their sha256 is what we expected from one bin file.
-    a. EX:
-        i. sha256sum 7B_Model/Original_llama_hf/pytorch_model-00002-of-00002.bin
-            1. 0087155d6df07106c1d910bfeb6aab1be8e612dfbf2b56ddfb4ccbde7dbd50d0
-        ii. sha256sum 7B_Model/Original_llama_hf/pytorch_model-00002-of-00002.bin
-            1. 461bc5e50200db7813ff99cc0b9316c48ccbd6aaaa31bf8cf7bee0b64bc3eda3
-        iii. What we expected for pytorch.bin format (huggingface)
-            1. 0087155d6df07106c1d910bfeb6aab1be8e612dfbf2b56ddfb4ccbde7dbd50d0461bc5e50200db7813ff99cc0b9316c48ccbd6aaaa31bf8cf7bee0b64bc3eda3
-    b. Solution: Bin stands for binary file. The way it stored is like cut the huge bin file into two part, so the sha-256 of the two file can be concatenate to the complete one.
-    
+1. What is the bin file? Is this the special format for HuggingFace? Why we have two bins that split the model into two, and then the concatenate of their sha256 is what we expected from one bin file.  
+    1. EX:  
+        1. sha256sum 7B_Model/Original_llama_hf/pytorch_model-00002-of-00002.bin  
+            1. 0087155d6df07106c1d910bfeb6aab1be8e612dfbf2b56ddfb4ccbde7dbd50d0  
+        2. sha256sum 7B_Model/Original_llama_hf/pytorch_model-00002-of-00002.bin  
+            1. 461bc5e50200db7813ff99cc0b9316c48ccbd6aaaa31bf8cf7bee0b64bc3eda3  
+        3. What we expected for pytorch.bin format (huggingface)  
+            1. 0087155d6df07106c1d910bfeb6aab1be8e612dfbf2b56ddfb4ccbde7dbd50d0461bc5e50200db7813ff99cc0b9316c48ccbd6aaaa31bf8cf7bee0b64bc3eda3  
+    2. Solution: Bin stands for binary file. The way it stored is like cut the huge bin file into two part, so the sha-256 of the two file can be concatenate to the complete one.   
 2. Use transformers:
-    a. Code: python Chinese-LLaMA-Alpaca/scripts/inference_hf.py \
-            --base_model 7B_Model/Merged_Model \
-            --with_prompt \
-            --interactive
-    b. Error: OSError: 7B_Model/Merged_Model does not appear to have a file named config.json. Checkout 'https://huggingface.co/7B_Model/Merged_Model/None' for available files.
-    c. Solution: deploy llama.cpp instead.
+    1. Code: python Chinese-LLaMA-Alpaca/scripts/inference_hf.py \   
+            --base_model 7B_Model/Merged_Model \   
+            --with_prompt \   
+            --interactive    
+    2. Error: OSError: 7B_Model/Merged_Model does not appear to have a file named config.json. Checkout 'https://huggingface.co/7B_Model/Merged_Model/None' for available files.   
+    3. Solution: deploy llama.cpp instead.   
 
 # Gossip
-1. SHA-256: hash function used to encoding, generate 256bit binary Hexdecimal representation
-    a. https://zhuanlan.zhihu.com/p/94619052
-    b. https://zhuanlan.zhihu.com/p/79978978
+1. SHA-256: hash function used to encoding, generate 256bit binary Hexdecimal representation  
+    1. https://zhuanlan.zhihu.com/p/94619052   
+    2. https://zhuanlan.zhihu.com/p/79978978   
+2. MD5: Similar goal as SHA-256  
+    1. https://zhuanlan.zhihu.com/p/36422432   
+3. Compared to LLaMA model  
+    1. Chinchilla  
+    2. PaLM   
+4. Download large zip file from google drive on Linux(Since I download a not too large file, so I didn't set up this now)   
+    1. https://blog.csdn.net/weixin_44003119/article/details/124281044   
+    2. https://blog.csdn.net/qq_37921030/article/details/120062263   
+5. What is Git-lfs and how to use it.   
+    1. https://zhuanlan.zhihu.com/p/146683392   
+6. Quantization：   
+    1. https://blog.csdn.net/jinzhuojun/article/details/106955059   
+7. Network Monitor in Linux:   
+    1. nload: nload - Monitor Linux Network Bandwidth Usage in Real Time (tecmint.com)   
     
-2. MD5: Similar goal as SHA-256
-    a. https://zhuanlan.zhihu.com/p/36422432
-3. Compared to LLaMA model
-    a. Chinchilla
-    b. PaLM
-4. Download large zip file from google drive on Linux(Since I download a not too large file, so I didn't set up this now)
-    a. https://blog.csdn.net/weixin_44003119/article/details/124281044
-    b. https://blog.csdn.net/qq_37921030/article/details/120062263
-5. What is Git-lfs and how to use it.
-    a. https://zhuanlan.zhihu.com/p/146683392
-6. Quantization：
-    a. https://blog.csdn.net/jinzhuojun/article/details/106955059
-7. Network Monitor in Linux:
-    a. nload: nload - Monitor Linux Network Bandwidth Usage in Real Time (tecmint.com)
-    
-# Proposed work
-1. Deploy plus version, or 13B version
-2. Deploy Ziya-LLaMA: https://huggingface.co/IDEA-CCNL/Ziya-LLaMA-13B-v1
+# Proposed work  
+1. Deploy plus version, or 13B version   
+2. Deploy Ziya-LLaMA: https://huggingface.co/IDEA-CCNL/Ziya-LLaMA-13B-v1   
+
