@@ -1,4 +1,4 @@
-# Leaning_Dairy
+# Leaning Diary
 Thank you for visiting!
 
 This will save what I learn in my daily work on perfect work machine learning engineering summer internship.
