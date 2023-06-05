@@ -5,7 +5,7 @@ This will save what I learn in my daily work on Perfect World as a Machine learn
 
 # Format(Agenda and Reflection)
 2023-06-05
-# Today's work
-# Questions and Solutions 
-# Gossip
-# Proposed work
+1. Today's work
+2. Questions and Solutions 
+3. Gossip
+4. Proposed work
