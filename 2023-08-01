@@ -1,0 +1,15 @@
+# Today's work  
+- [x] edit on the daily conversation corpus one by one(1180)  
+- [ ] Compare the model with and without train_on_input  
+python finetune_baichuan.py --base_model 'Baichuan-13B-Chat' --data_path 'data/mishi-07-21.json' --output_dir './Finetune-model/finetune-baichuan-up-4' --num_epochs 5  --learning_rate 1e-4 --cutoff_len 1024 --val_set_size 0  --add_eos_token True --train_on_inputs False  
+- [ ] gain base model baichuan-13B   
+- [ ] Train the model with daily communication data to get chat model  
+# Questions
+# Gossip
+# Proposed work
+- [ ] refine the special data one by one  
+- [ ] use the special data as local library for inference  
+# After work  
+- [ ] Linux Learning
+- [ ] Create a data scientist resume  
+- [ ] apply for fall job  
